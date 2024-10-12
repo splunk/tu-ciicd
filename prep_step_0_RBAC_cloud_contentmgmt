@@ -1,1 +1,60 @@
+As an sc_admin on the GUI on adhoc SHC 
 
+- Add export_apps role to your sc_admin user
+
+- Create a role called es_security_content_manager
+On AD-HOC this role has NO CAPABILITIES
+NO search
+NO scheduled search
+NO access to any indexes
+NO capabilities
+
+- Default app DA-ESS-ContentUpdate
+Role search job limit, 5 standard, 5 real-time
+User search job limit, 3 standard, 1 real-time
+Role search time window max 60, earliest 600
+Disk space limit 10mb
+
+- Reload Auth Configuration
+Return to role es_security_content_manager observe 5 NATIVE capabilities have returned automatically back, remove them again, except edit_own_objects, and list_all_objects
+
+- Create a user called es_security_content_owner
+set the default app to Search and Reporting
+ensure there are NO other roles, including user inherited.
+assign only to the role es_security_content_manager
+
+
+# now repeat for bu_adhoc_content_manager on Adhoc still 
+
+
+
+
+
+
+###################
+As an sc_admin on the GUI on ES SH 
+- Add export_apps role to your sc_admin user
+
+- Create a role called es_security_content_manager
+inherited the roles ess_admin, and ess_analyst, export_apps, ess_user
+add _audit index, _config_tracker index, as included, not default
+
+- change the roles default app to SplunkEnterpriseSecuritySuite
+
+- Create a user called es_security_content_owner
+ensure there are NO other roles, including user inherited.
+assign only to the role es_security_content_manager
+set default app to SplunkEnterpriseSecurity
+
+########
+- Create a user called es_gui_demo_developer_user
+this is for demonstration purposes, represents your users’ own accounts
+assign only to the role es_security_content_manager
+set default app to SplunkEnterpriseSecurity
+
+##########
+- log out of both adhoc an es 
+- validate that the user can
+------- login 
+-------- can't log in to other
+--- 
