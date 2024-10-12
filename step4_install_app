@@ -16,6 +16,13 @@
 # Get Token for ADHOC on Cloud Stack 
 # user must be sc_admin in adhoc
 
-curl -u <user>:<password> -X POST 'https://<environment>/<stackname_adhoc>/<acs>/tokens' --header 'Content-Type: application/json' --data-raw '{"user" : "<user>","sc_admin" : "install app victoria", "expiresOn" : "+5d"}' 
+curl -u <user>:<password> -X POST 'https://<environment>/<stackname_adhoc>/<acs>/tokens' --header 'Content-Type: application/json' --data-raw '{"user" : "<user>","for sc_admins" : "install app victoria", "expiresOn" : "+5d"}' 
 
+# receive back token 
+# for example 
+# eyJraWQiOiJzcGx1bmsuc2VjcmV0IiwiYWxnIjoi
+# SFM1MTIiLCJ2ZXIiOiJ2MiIsInR0eXAiOiJzdGF0a
+# WMifQ.eyJpc3MiOiJtYWNlY3JvbiBmcm9tIHNoLWk
+# tMDU4OThiYzgxMDhmYzA
 
+# copy this token for further commands 
