@@ -1,4 +1,7 @@
 # https://docs.splunk.com/Documentation/SplunkCloud/latest/Security/Rolesandcapabilities
+
+
+##### 
 # Recommeneded capabilites to remove from [role_user],[role_power]
 upload_lookup_files
 input_file
