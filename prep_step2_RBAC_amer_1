@@ -1,0 +1,13 @@
+# Adhoc AMER 
+# remove the 
+# roles with high user counts
+# roles with high index access count
+
+
+# Create role es_content_mgr
+# Create role amer_content_mgr
+
+# Create user es_content_owner
+# Create role amer_content_mgr
+
+# ES Amer
