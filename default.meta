@@ -1,0 +1,134 @@
+
+# Application-level permissions
+# https://dev.splunk.com/enterprise/docs/developapps/manageknowledge/setpermissionsforobjects/
+# https://dev.splunk.com/enterprise/docs/planapps/cloudready
+
+# Apply this default.meta to all apps owned by Security
+
+[]
+export = none
+access = read : [ sc_admin , es_security_content_manager ], write : [ sc_admin, es_security_content_manager ]
+
+[alert_actions]
+export = none
+owner = es_security_content_owner
+access = read : [ sc_admin , es_security_content_manager ], write : [ sc_admin, es_security_content_manager ]
+
+[app]
+export = none
+owner = es_security_content_owner
+access = read : [ sc_admin , es_security_content_manager ], write : [ sc_admin, es_security_content_manager ]
+
+
+[commands]
+export = none
+owner = es_security_content_owner
+access = read : [ sc_admin , es_security_content_manager ], write : [ sc_admin, es_security_content_manager ]
+
+
+## To set permissions for a data model, you must include a stanza for both models and datamodels object types
+[models]
+export = none
+owner = es_security_content_owner
+access = read : [ sc_admin , es_security_content_manager ], write : [ sc_admin, es_security_content_manager ]
+
+[datamodels]
+export = none
+owner = es_security_content_owner
+access = read : [ sc_admin , es_security_content_manager ], write : [ sc_admin, es_security_content_manager ]
+###
+
+
+[eventtypes]
+export = none
+owner = es_security_content_owner
+access = read : [ sc_admin , es_security_content_manager ], write : [ sc_admin, es_security_content_manager ]
+
+[html]
+export = none
+owner = es_security_content_owner
+access = read : [ sc_admin , es_security_content_manager ], write : [ sc_admin, es_security_content_manager ]
+
+[lookups]
+export = none
+owner = es_security_content_owner
+access = read : [ sc_admin , es_security_content_manager ], write : [ sc_admin, es_security_content_manager ]
+
+
+[macros]
+export = none
+owner = es_security_content_owner
+access = read : [ sc_admin , es_security_content_manager ], write : [ sc_admin, es_security_content_manager ]
+
+
+[nav/default]
+export = none
+owner = es_security_content_owner
+access = read : [ sc_admin , es_security_content_manager ], write : [ sc_admin, es_security_content_manager ]
+
+
+[savedsearches]
+export = none
+owner = es_security_content_owner
+access = read : [ sc_admin , es_security_content_manager ], write : [ sc_admin, es_security_content_manager ]
+
+[searchscripts]
+export = none
+owner = es_security_content_owner
+access = read : [ sc_admin , es_security_content_manager ], write : [ sc_admin, es_security_content_manager ]
+
+[views]
+export = none
+owner = es_security_content_owner
+access = read : [ sc_admin , es_security_content_manager ], write : [ sc_admin, es_security_content_manager ]
+
+
+[tags]
+export = none
+owner = es_security_content_owner
+access = read : [ sc_admin , es_security_content_manager ], write : [ sc_admin, es_security_content_manager ]
+
+
+[visualizations]
+export = none
+owner = es_security_content_owner
+access = read : [ sc_admin , es_security_content_manager ], write : [ sc_admin, es_security_content_manager ]
+
+
+[searchbnf]
+export = none
+owner = es_security_content_owner
+access = read : [ sc_admin , es_security_content_manager ], write : [ sc_admin, es_security_content_manager ]
+
+
+[restmap]
+export = none
+owner = es_security_content_owner
+access = read : [ sc_admin , es_security_content_manager ], write : [ sc_admin, es_security_content_manager ]
+
+
+[props]
+export = none
+owner = es_security_content_owner
+access = read : [ sc_admin , es_security_content_manager ], write : [ sc_admin, es_security_content_manager ]
+
+[transforms]
+export = none
+owner = es_security_content_owner
+access = read : [ sc_admin , es_security_content_manager ], write : [ sc_admin, es_security_content_manager ]
+
+
+### VIEWSTATES: even normal users should be able to create shared viewstates
+
+[viewstates]
+access = read : [ * ], write : [ * ]
+export = none
+owner = es_security_content_owner
+
+
+### On Prem Only
+[manager/accesscontrols]
+export = none
+owner = es_security_content_owner
+access = read : [ sc_admin , es_security_content_manager ], write : [ sc_admin, es_security_content_manager ]
+
