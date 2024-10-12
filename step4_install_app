@@ -1,0 +1,11 @@
+# get a bearer token from the adhoc shc of cloud stack
+# user must be sc_admin in adhoc
+
+# environment = staging.admin.splunk.com
+# stackname_adhoc = clap-nutella-es
+# acs = /adminconfig/v2
+# user = macecron
+# password = yourpassword
+
+curl -u <user>:<password> -X POST 'https://<environment>/<stackname_adhoc>/<acs>/tokens' --header 'Content-Type: application/json' --data-raw '{"user" : "<user>","sc_admin" : "install app victoria", "expiresOn" : "+5d"}' 
+
