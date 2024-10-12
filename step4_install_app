@@ -1,11 +1,21 @@
-# get a bearer token from the adhoc shc of cloud stack
-# user must be sc_admin in adhoc
+# Step 4.1 Install App, first must pass AppInspect in Cloud
 
+# REQUIREMENTS 
+# a user account on splunk.com 
+# and 
+# a user account, WITH sc_admin role, on the  ADHOC cluster of the target stack 
+
+##### 
 # environment = staging.admin.splunk.com
 # stackname_adhoc = clap-nutella-es
 # acs = /adminconfig/v2
 # user = macecron
 # password = yourpassword
+###### 
+
+# Get Token for ADHOC on Cloud Stack 
+# user must be sc_admin in adhoc
 
 curl -u <user>:<password> -X POST 'https://<environment>/<stackname_adhoc>/<acs>/tokens' --header 'Content-Type: application/json' --data-raw '{"user" : "<user>","sc_admin" : "install app victoria", "expiresOn" : "+5d"}' 
+
 
