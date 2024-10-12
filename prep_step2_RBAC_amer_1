@@ -1,3 +1,26 @@
+# https://docs.splunk.com/Documentation/SplunkCloud/latest/Security/Rolesandcapabilities
+# Recommeneded capabilites to remove from [role_user],[role_power]
+upload_lookup_files
+input_file
+accelerate_search
+schedule_rtsearch
+srchIndexesAllowed = 
+srchIndexesDefault = 
+
+edit_search_schedule_window = enabled
+list_accelerate_search = enabled
+list_all_objects = enabled
+/opt/splunk/etc/system/local/authorize.conf  list_tokens_own = disabled
+request_remote_tok = enabled
+rest_access_server_endpoints = enabled
+rest_apps_view = enabled
+rest_properties_get = enabled
+rest_properties_set = enabled
+rtSrchJobsQuota = 6
+run_dump = enabled
+/opt/splunk/etc/system/local/authorize.conf  run_multi_phased_searches = enabled
+
+
 # Adhoc AMER 
 # remove the 
 # roles with high user counts
