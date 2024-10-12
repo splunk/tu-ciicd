@@ -21,3 +21,10 @@ Splunk Cloud Victoria - Required Knowlege
 Impact
 - User and Content Management Goverance of the Splunk Cloud as a unified platform is critical
 - Least privledged RBAC and explicit knowledge object ownership and permissions is a must for platform stability
+
+
+Key Reference Documentation
+https://dev.splunk.com/enterprise/docs/developapps
+
+Getting Started with Splunk App Development
+https://dev.splunk.com/enterprise/tutorials/module_getstarted
