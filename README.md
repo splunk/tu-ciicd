@@ -7,6 +7,9 @@ Requirements
 - Splunk Cloud sc_admin account, with Export Apps role added
 
 Splunk Cloud Victoria - Required Knowlege
+# Differences between Enterprise and Cloud 
+https://docs.splunk.com/Documentation/SplunkCloud/9.2.2406/Service/SplunkCloudservice#Differences_between_Splunk_Cloud_Platform_and_Splunk_Enterprise
+
 # How self-service app installation works in Victoria Experience
 https://docs.splunk.com/Documentation/SplunkCloud/9.2.2406/Admin/PrivateApps#How_self-service_app_installation_works_in_Victoria_Experience
 - App Vetting requires all content be merged to /default/ to pass
