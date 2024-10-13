@@ -1,0 +1,3 @@
+splunk_federated_provider field is not returned in accelerated data model queries 
+https://splunk.atlassian.net/browse/SPL-244489
+https://docs.splunk.com/Documentation/Splunk/7.2.4/Installation/AboutupgradingREADTHISFIRST#Data_model_searches_now_only_use_fields_that_have_been_defined_within_the_data_model:~:text=Data%20model%20searches,that%20contain%20whitespace
