@@ -12,18 +12,18 @@
 - Knowledge Object precedence
 
 # Splunk Cloud Victoria - Required Knowlege
-# Differences between Enterprise and Cloud 
+## Differences between Enterprise and Cloud 
 https://docs.splunk.com/Documentation/SplunkCloud/9.2.2406/Service/SplunkCloudservice#Differences_between_Splunk_Cloud_Platform_and_Splunk_Enterprise
 - Real time searches are enabled by default in Victoria Cloud
 - Rest API requires a support case to open the port and enable
 - Cloud REST API is a subset of the Enterprise REST API, have different endpoints in some cases.
 - Do NOT modify or use Splunk system roles or user in Cloud
 
-# ACS capabilites
+## ACS capabilites
 https://docs.splunk.com/Documentation/SplunkCloud/9.2.2406/Config/RBAC#Manage_ACS_endpoint_access_with_capabilities
 = Any user whose role contains the required capabilities can run operations against ACS API endpoints, not just the sc_admin
 
-# How self-service app installation works in Victoria Experience
+## How self-service app installation works in Victoria Experience
 https://docs.splunk.com/Documentation/SplunkCloud/9.2.2406/Admin/PrivateApps#How_self-service_app_installation_works_in_Victoria_Experience
 - App Vetting requires all content be merged to /default/ to pass
 - Install and Uninstall Does not allow you to target a specific environment for app install/update.
@@ -32,9 +32,10 @@ https://docs.splunk.com/Documentation/SplunkCloud/9.2.2406/Admin/PrivateApps#How
 - Enabled saved searches on install will run on all search heads (Adhoc and ES)
 - Apps with any Knowledge Objects without explicit ownership will be a default role of nobody
 
-# Capabilites of Target Apps ACS
+## Target Apps ACS Capabilities/Limitations
 https://docs.splunk.com/Documentation/SplunkCloud/9.2.2403/Config/TargetSearchHeads
-- ACS can only target individual SH with limited capabilities (not install) permissions is relevant
+- ACS can only target individual SH with limited capabilities (not install or uninstall) permissions is relevant
+- Anyone with the needed permissions can use ACS capabilities not just sc_admin
   
 # How to Export Apps, by Search Head group
 https://docs.splunk.com/Documentation/SplunkCloud/9.2.2403/Config/ExportApps
