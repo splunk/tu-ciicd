@@ -2,6 +2,14 @@
 #  ALL SC_ADMIN
 #  <stack>_<searchhead>_admin_<region>
 
+| rest splunk_server=local /services/authentication/users
+| fields title, roles
+| mvexpand roles
+| append [ | rest splunk_server=local /services/authorization/roles | fields - id,splunk_server,author, cumulative*,*Quota,*srchTime*,updated,published
+           | rename title as roles] | rename title as userid | stats  values(*) as * by roles  | mvexpand userid | search userid!="" roles!=ps_admin
+|stats dc(userid) as usercount,  values(*) as * by roles   | table roles,usercount,*capabilities
+
+
 
 ####### DEFAULT ROLES Best Practices ########
 [role_sc_admin]
@@ -42,6 +50,7 @@ This lower "sc_admin" role should NOT have the following capabilities that defau
 KEEP/ADD ? 
 https://docs.splunk.com/Documentation/Splunk/latest/Admin/Customizeuserexperience
 https://docs.splunk.com/Documentation/SplunkCloud/latest/Admin/DisplayGlobalBanner
+
 
 
 ###### TU RBAC Recomendations #########
