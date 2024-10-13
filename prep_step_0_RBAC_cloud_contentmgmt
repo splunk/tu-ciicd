@@ -1,27 +1,3 @@
-# https://docs.splunk.com/Documentation/SplunkCloud/9.2.2406/Service/SplunkCloudservice#Differences_between_Splunk_Cloud_Platform_and_Splunk_Enterprise
-- Real time searches are enabled by default in Victoria Cloud
-- Rest API requires a support case to open the port and enable
-- Cloud REST API is a subset of the Enterprise REST API, have different endpoints in some cases.
-- Do NOT modify or use Splunk system roles or user in Cloud
-
-
-# PREQREQURISTES to App install Requirement
-- Ensure permissions are set on other apps with least privledge
-  - SplunkBase apps and addons are typically overprovisioned
-  - Ensure the Splunk sustem users are not used by KOs that will be managed by your users 
-
-# Overview 
-# Create an sc_admin user on ALL search head groups AdHoc and ES and (ITSI) if needed.
-- Keep the users with sc_admin as low as possible to ensure platform stability
-
-# Create Content Management Roles for each Search Head group, eg. IT-content-mgr and ES-content-mgr 
-- ON ALL Search Head Groups, all these roles will be defined
-- This configuration will help ensure that each of these content roles will have permissions removed in the Search Head Groups that they should not write to.
-
-# Create Content Users for each Search Head group, eg. IT-content-owner and ES-content-owner
-- ON ALL Search Head Groups, all these content owners will be defined.
-- This configuration will help ensure that that there is always an availalable owner to assign, so that the Splunk system user like NOBODY, does not inadvertantly get access to KOs'
-
 
 
 # Create content role on Adhoc first. 
