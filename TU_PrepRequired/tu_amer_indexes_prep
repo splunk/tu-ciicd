@@ -35,6 +35,7 @@ etc/apps/tu_all_indexes/default/indexes.conf               coldPath = $SPLUNK_DB
 etc/apps/tu_all_indexes/default/indexes.conf               frozenTimePeriodInSecs = 31557600
 etc/apps/tu_all_indexes/default/indexes.conf               homePath = $SPLUNK_DB/atl_apache/db
 etc/apps/tu_all_indexes/default/indexes.conf               thawedPath = $SPLUNK_DB/atl_apache/thaweddb
+
 etc/apps/tu_all_indexes/default/indexes.conf               [atl_bigip]
 etc/apps/tu_all_indexes/default/indexes.conf               coldPath = $SPLUNK_DB/atl_bigip/colddb
 etc/apps/tu_all_indexes/default/indexes.conf               frozenTimePeriodInSecs = 31557600
@@ -163,6 +164,7 @@ etc/apps/tu_all_indexes/default/indexes.conf               coldPath = $SPLUNK_DB
 etc/apps/000-self-service/local/indexes.conf               frozenTimePeriodInSecs = 94608000
 etc/apps/tu_all_indexes/default/indexes.conf               homePath = $SPLUNK_DB/aws_topology_playback/db
 etc/apps/tu_all_indexes/default/indexes.conf               thawedPath = $SPLUNK_DB/aws_topology_playback/thaweddb
+
 etc/apps/tu_all_indexes/default/indexes.conf               [aws_topology_snapshot]
 etc/apps/tu_all_indexes/default/indexes.conf               coldPath = $SPLUNK_DB/aws_topology_snapshot/colddb
 etc/apps/tu_all_indexes/default/indexes.conf               frozenTimePeriodInSecs = 15552000
