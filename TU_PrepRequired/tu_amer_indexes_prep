@@ -1,0 +1,170 @@
+
+etc/apps/000-self-service/local/indexes.conf               [abinitio]
+etc/system/local/indexes.conf                              coldPath = $SPLUNK_DB/$_index_name/colddb
+etc/apps/000-self-service/local/indexes.conf               frozenTimePeriodInSecs = 94608000
+etc/system/local/indexes.conf                              homePath = $SPLUNK_DB/$_index_name/db
+etc/system/local/indexes.conf                              thawedPath = $SPLUNK_DB/$_index_name/thaweddb
+
+etc/apps/000-self-service/local/indexes.conf               [add_on_builder_index]
+etc/apps/tu_all_indexes/default/indexes.conf               coldPath = $SPLUNK_DB/add_on_builder_index/colddb
+etc/apps/000-self-service/local/indexes.conf               frozenTimePeriodInSecs = 94608000
+etc/apps/tu_all_indexes/default/indexes.conf               homePath = $SPLUNK_DB/add_on_builder_index/db
+etc/apps/tu_all_indexes/default/indexes.conf               thawedPath = $SPLUNK_DB/add_on_builder_index/thaweddb
+
+etc/apps/tu_all_indexes/default/indexes.conf               [alerts_neustar]
+etc/apps/tu_all_indexes/default/indexes.conf               coldPath = $SPLUNK_DB/alerts_neustar/colddb
+etc/apps/tu_all_indexes/default/indexes.conf               frozenTimePeriodInSecs = 7776000
+etc/apps/tu_all_indexes/default/indexes.conf               homePath = $SPLUNK_DB/alerts_neustar/db
+etc/apps/tu_all_indexes/default/indexes.conf               thawedPath = $SPLUNK_DB/alerts_neustar/thaweddb
+
+etc/apps/000-self-service/local/indexes.conf               [ame_default]
+etc/apps/000-self-service/local/indexes.conf               frozenTimePeriodInSecs = 2592000
+etc/system/local/indexes.conf                              homePath = $SPLUNK_DB/$_index_name/db
+etc/apps/000-self-service/local/indexes.conf               maxTotalDataSizeMB = 0
+etc/apps/000-self-service/local/indexes.conf               storage_tier = normal
+etc/system/local/indexes.conf                              thawedPath = $SPLUNK_DB/$_index_name/thaweddb
+
+etc/apps/tu_all_indexes/default/indexes.conf               [anomaly_detection]
+etc/apps/tu_all_indexes/default/indexes.conf               coldPath = $SPLUNK_DB/anomaly_detection/colddb
+etc/apps/tu_all_indexes/default/indexes.conf               frozenTimePeriodInSecs = 315360000
+etc/apps/tu_all_indexes/default/indexes.conf               homePath = $SPLUNK_DB/anomaly_detection/db
+etc/apps/tu_all_indexes/default/indexes.conf               thawedPath = $SPLUNK_DB/anomaly_detection/thaweddb
+
+etc/apps/tu_all_indexes/default/indexes.conf               [atl_apache]
+etc/apps/tu_all_indexes/default/indexes.conf               coldPath = $SPLUNK_DB/atl_apache/colddb
+etc/apps/tu_all_indexes/default/indexes.conf               frozenTimePeriodInSecs = 31557600
+etc/apps/tu_all_indexes/default/indexes.conf               homePath = $SPLUNK_DB/atl_apache/db
+etc/apps/tu_all_indexes/default/indexes.conf               thawedPath = $SPLUNK_DB/atl_apache/thaweddb
+etc/apps/tu_all_indexes/default/indexes.conf               [atl_bigip]
+etc/apps/tu_all_indexes/default/indexes.conf               coldPath = $SPLUNK_DB/atl_bigip/colddb
+etc/apps/tu_all_indexes/default/indexes.conf               frozenTimePeriodInSecs = 31557600
+etc/apps/tu_all_indexes/default/indexes.conf               homePath = $SPLUNK_DB/atl_bigip/db
+etc/apps/tu_all_indexes/default/indexes.conf               thawedPath = $SPLUNK_DB/atl_bigip/thaweddb
+
+etc/apps/tu_all_indexes/default/indexes.conf               [atl_database]
+etc/apps/tu_all_indexes/default/indexes.conf               frozenTimePeriodInSecs = 31557600
+etc/apps/tu_all_indexes/default/indexes.conf               homePath = $SPLUNK_DB/atl_database/db
+etc/apps/tu_all_indexes/default/indexes.conf               thawedPath = $SPLUNK_DB/atl_database/thaweddb
+
+etc/apps/tu_all_indexes/default/indexes.conf               [atl_dc]
+etc/apps/tu_all_indexes/default/indexes.conf               coldPath = $SPLUNK_DB/atl_dc/colddb
+etc/apps/tu_all_indexes/default/indexes.conf               frozenTimePeriodInSecs = 31557600
+etc/apps/tu_all_indexes/default/indexes.conf               homePath = $SPLUNK_DB/atl_dc/db
+etc/apps/tu_all_indexes/default/indexes.conf               thawedPath = $SPLUNK_DB/atl_dc/thaweddb
+
+etc/apps/tu_all_indexes/default/indexes.conf               [atl_envision]
+etc/apps/tu_all_indexes/default/indexes.conf               coldPath = $SPLUNK_DB/atl_envision/colddb
+etc/apps/tu_all_indexes/default/indexes.conf               frozenTimePeriodInSecs = 31557600
+etc/apps/tu_all_indexes/default/indexes.conf               homePath = $SPLUNK_DB/atl_envision/db
+etc/apps/tu_all_indexes/default/indexes.conf               thawedPath = $SPLUNK_DB/atl_envision/thaweddb
+
+etc/apps/tu_all_indexes/default/indexes.conf               [atl_esm_tools]
+etc/apps/tu_all_indexes/default/indexes.conf               coldPath = $SPLUNK_DB/atl_esm_tools/colddb
+etc/apps/tu_all_indexes/default/indexes.conf               frozenTimePeriodInSecs = 31557600
+etc/apps/tu_all_indexes/default/indexes.conf               homePath = $SPLUNK_DB/atl_esm_tools/db
+etc/apps/tu_all_indexes/default/indexes.conf               thawedPath = $SPLUNK_DB/atl_esm_tools/thaweddb
+
+etc/apps/tu_all_indexes/default/indexes.conf               [atl_jboss]
+etc/apps/tu_all_indexes/default/indexes.conf               coldPath = $SPLUNK_DB/atl_jboss/colddb
+etc/apps/tu_all_indexes/default/indexes.conf               frozenTimePeriodInSecs = 31557600
+etc/apps/tu_all_indexes/default/indexes.conf               homePath = $SPLUNK_DB/atl_jboss/db
+etc/apps/tu_all_indexes/default/indexes.conf               thawedPath = $SPLUNK_DB/atl_jboss/thaweddb
+
+etc/apps/tu_all_indexes/default/indexes.conf               [atl_net_device]
+etc/apps/tu_all_indexes/default/indexes.conf               frozenTimePeriodInSecs = 31557600
+etc/apps/tu_all_indexes/default/indexes.conf               homePath = $SPLUNK_DB/atl_net_device/db
+etc/apps/tu_all_indexes/default/indexes.conf               thawedPath = $SPLUNK_DB/atl_net_device/thaweddb
+
+etc/apps/tu_all_indexes/default/indexes.conf               [atl_net_firewall]
+etc/apps/tu_all_indexes/default/indexes.conf               coldPath = $SPLUNK_DB/atl_net_firewall/colddb
+etc/apps/tu_all_indexes/default/indexes.conf               frozenTimePeriodInSecs = 31557600
+etc/apps/tu_all_indexes/default/indexes.conf               homePath = $SPLUNK_DB/atl_net_firewall/db
+etc/apps/tu_all_indexes/default/indexes.conf               thawedPath = $SPLUNK_DB/atl_net_firewall/thaweddb
+
+etc/apps/tu_all_indexes/default/indexes.conf               [atl_opensystems]
+etc/apps/tu_all_indexes/default/indexes.conf               coldPath = $SPLUNK_DB/atl_opensystems/colddb
+etc/apps/tu_all_indexes/default/indexes.conf               frozenTimePeriodInSecs = 31557600
+etc/apps/tu_all_indexes/default/indexes.conf               homePath = $SPLUNK_DB/atl_opensystems/db
+etc/apps/tu_all_indexes/default/indexes.conf               thawedPath = $SPLUNK_DB/atl_opensystems/thaweddb
+
+etc/apps/tu_all_indexes/default/indexes.conf               [atl_os_metrics]
+etc/apps/tu_all_indexes/default/indexes.conf               coldPath = $SPLUNK_DB/atl_os_metrics/colddb
+etc/apps/tu_all_indexes/default/indexes.conf               datatype = metric
+etc/apps/tu_all_indexes/default/indexes.conf               homePath = $SPLUNK_DB/atl_os_metrics/db
+etc/apps/tu_all_indexes/default/indexes.conf               thawedPath = $SPLUNK_DB/atl_os_metrics/thaweddb
+
+etc/apps/tu_all_indexes/default/indexes.conf               [atl_perfmon]
+etc/apps/tu_all_indexes/default/indexes.conf               coldPath = $SPLUNK_DB/atl_perfmon/colddb
+etc/apps/tu_all_indexes/default/indexes.conf               frozenTimePeriodInSecs = 31557600
+etc/apps/tu_all_indexes/default/indexes.conf               homePath = $SPLUNK_DB/atl_perfmon/db
+etc/apps/tu_all_indexes/default/indexes.conf               thawedPath = $SPLUNK_DB/atl_perfmon/thaweddb
+
+etc/apps/tu_all_indexes/default/indexes.conf               [atl_tidal]
+etc/apps/tu_all_indexes/default/indexes.conf               coldPath = $SPLUNK_DB/atl_tidal/colddb
+etc/apps/tu_all_indexes/default/indexes.conf               frozenTimePeriodInSecs = 31557600
+etc/apps/tu_all_indexes/default/indexes.conf               homePath = $SPLUNK_DB/atl_tidal/db
+etc/apps/tu_all_indexes/default/indexes.conf               thawedPath = $SPLUNK_DB/atl_tidal/thaweddb
+
+etc/apps/tu_all_indexes/default/indexes.conf               [atl_ucs]
+etc/apps/tu_all_indexes/default/indexes.conf               coldPath = $SPLUNK_DB/atl_ucs/colddb
+etc/apps/tu_all_indexes/default/indexes.conf               frozenTimePeriodInSecs = 31557600
+etc/apps/tu_all_indexes/default/indexes.conf               homePath = $SPLUNK_DB/atl_ucs/db
+etc/apps/tu_all_indexes/default/indexes.conf               thawedPath = $SPLUNK_DB/atl_ucs/thaweddb
+
+etc/apps/tu_all_indexes/default/indexes.conf               [atl_windows]
+etc/apps/tu_all_indexes/default/indexes.conf               coldPath = $SPLUNK_DB/atl_windows/colddb
+etc/apps/tu_all_indexes/default/indexes.conf               frozenTimePeriodInSecs = 31557600
+etc/apps/tu_all_indexes/default/indexes.conf               homePath = $SPLUNK_DB/atl_windows/db
+etc/apps/tu_all_indexes/default/indexes.conf               thawedPath = $SPLUNK_DB/atl_windows/thaweddb
+
+etc/apps/tu_all_indexes/default/indexes.conf               [atl_zenoss]
+etc/apps/tu_all_indexes/default/indexes.conf               coldPath = $SPLUNK_DB/atl_zenoss/colddb
+etc/apps/tu_all_indexes/default/indexes.conf               frozenTimePeriodInSecs = 31557600
+etc/apps/tu_all_indexes/default/indexes.conf               homePath = $SPLUNK_DB/atl_zenoss/db
+etc/apps/tu_all_indexes/default/indexes.conf               thawedPath = $SPLUNK_DB/atl_zenoss/thaweddb
+
+etc/apps/000-self-service/local/indexes.conf               [audit_summary]
+etc/apps/000-self-service/local/indexes.conf               archiver.enableDataArchive = 1
+etc/apps/000-self-service/local/indexes.conf               archiver.maxDataArchiveRetentionPeriod = 315360000
+etc/apps/tu_all_indexes/default/indexes.conf               coldPath = $SPLUNK_DB/audit_summary/colddb
+etc/apps/000-self-service/local/indexes.conf               frozenTimePeriodInSecs = 94608000
+etc/apps/tu_all_indexes/default/indexes.conf               homePath = $SPLUNK_DB/audit_summary/db
+etc/apps/000-self-service/local/indexes.conf               maxTotalDataSizeMB = 0
+etc/apps/tu_all_indexes/default/indexes.conf               thawedPath = $SPLUNK_DB/audit_summary/thaweddb
+
+etc/apps/000-self-service/local/indexes.conf               [auditd]
+etc/apps/000-self-service/local/indexes.conf               archiver.coldStorageProvider = Glacier
+etc/apps/000-self-service/local/indexes.conf               archiver.coldStorageRetentionPeriod = 365
+etc/apps/tu_all_indexes/default/indexes.conf               coldPath = $SPLUNK_DB/auditd/colddb
+etc/apps/000-self-service/local/indexes.conf               frozenTimePeriodInSecs = 7776000
+etc/apps/tu_all_indexes/default/indexes.conf               homePath = $SPLUNK_DB/auditd/db
+etc/apps/tu_all_indexes/default/indexes.conf               thawedPath = $SPLUNK_DB/auditd/thaweddb
+
+etc/apps/000-self-service/local/indexes.conf               [aws_topology_daily_snapshot]
+etc/apps/tu_all_indexes/default/indexes.conf               coldPath = $SPLUNK_DB/aws_topology_daily_snapshot/colddb
+etc/apps/000-self-service/local/indexes.conf               frozenTimePeriodInSecs = 94608000
+etc/apps/tu_all_indexes/default/indexes.conf               homePath = $SPLUNK_DB/aws_topology_daily_snapshot/db
+etc/apps/tu_all_indexes/default/indexes.conf               thawedPath = $SPLUNK_DB/aws_topology_daily_snapshot/thaweddb
+
+etc/apps/000-self-service/local/indexes.conf               [aws_topology_history]
+etc/apps/tu_all_indexes/default/indexes.conf               coldPath = $SPLUNK_DB/aws_topology_history/colddb
+etc/apps/000-self-service/local/indexes.conf               frozenTimePeriodInSecs = 94608000
+etc/apps/tu_all_indexes/default/indexes.conf               homePath = $SPLUNK_DB/aws_topology_history/db
+etc/apps/tu_all_indexes/default/indexes.conf               thawedPath = $SPLUNK_DB/aws_topology_history/thaweddb
+
+etc/apps/000-self-service/local/indexes.conf               [aws_topology_monthly_snapshot]
+etc/apps/tu_all_indexes/default/indexes.conf               coldPath = $SPLUNK_DB/aws_topology_monthly_snapshot/colddb
+etc/apps/000-self-service/local/indexes.conf               frozenTimePeriodInSecs = 94608000
+etc/apps/tu_all_indexes/default/indexes.conf               homePath = $SPLUNK_DB/aws_topology_monthly_snapshot/db
+etc/apps/tu_all_indexes/default/indexes.conf               thawedPath = $SPLUNK_DB/aws_topology_monthly_snapshot/thaweddb
+
+etc/apps/000-self-service/local/indexes.conf               [aws_topology_playback]
+etc/apps/tu_all_indexes/default/indexes.conf               coldPath = $SPLUNK_DB/aws_topology_playback/colddb
+etc/apps/000-self-service/local/indexes.conf               frozenTimePeriodInSecs = 94608000
+etc/apps/tu_all_indexes/default/indexes.conf               homePath = $SPLUNK_DB/aws_topology_playback/db
+etc/apps/tu_all_indexes/default/indexes.conf               thawedPath = $SPLUNK_DB/aws_topology_playback/thaweddb
+etc/apps/tu_all_indexes/default/indexes.conf               [aws_topology_snapshot]
+etc/apps/tu_all_indexes/default/indexes.conf               coldPath = $SPLUNK_DB/aws_topology_snapshot/colddb
+etc/apps/tu_all_indexes/default/indexes.conf               frozenTimePeriodInSecs = 15552000
+etc/apps/tu_all_indexes/default/indexes.conf               homePath = $SPLUNK_DB/aws_topology_snapshot/db
+etc/apps/tu_all_indexes/default/indexes.conf               thawedPath = $SPLUNK_DB/aws_topology_snapshot/thaweddb
