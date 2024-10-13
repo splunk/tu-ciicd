@@ -19,6 +19,7 @@ Best practices:
 Keep a most 2-3 super admin sc_admin users with the default sc_admin role, break glass, new features, and the highest level of global changes.
 These accounts have a very strict management process for use, e.g. check-in/check-out.
 
+
 For the rest of the "admins" create a new role (lower) that does not inherit directly to sc_admin
 [role_ <<searchhead>_admin_<region>]
  "<stack>_<searchhead>_admin_<region>" for each unit/region, DOES NOT inherit any default Splunk roles
@@ -41,6 +42,10 @@ This lower "sc_admin" role should NOT have the following capabilities that defau
 - dmc_deploy_apps
 - dmc_manage_topology
 - edit_authentication_extensions
+
+KEEP/ADD ? 
+https://docs.splunk.com/Documentation/Splunk/latest/Admin/Customizeuserexperience
+https://docs.splunk.com/Documentation/SplunkCloud/latest/Admin/DisplayGlobalBanner
 
 
 ###### TU RBAC Recomendations #########
