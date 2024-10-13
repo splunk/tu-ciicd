@@ -1,20 +1,23 @@
-# tu-ciicd 
+# Managing Splunk Cloud Victoria with automation
 
-Requirements
+# Platform Requirements
 - Splunk Enterprise Dev/Test License
 - Splunk Enterprise, full install standalone, linux
 - Splunk Cloud Victoria version minimum 9.2.2304
-- Splunk Cloud sc_admin account, with Export Apps role added
-- An sc_admin account, with Export Apps role added on each Search Head Group
+- Splunk Cloud sc_admin account, with Export Apps role added to ALL Search Head Groups
 - The API opened to Splunk Cloud, (via support case)
 
-Splunk Required Knowledge 
+# Splunk Platform Required Knowledge 
 - Roles, Capabilites, Users, and Knowledge Object management
 - Knowledge Object precedence
 
-Splunk Cloud Victoria - Required Knowlege
+# Splunk Cloud Victoria - Required Knowlege
 # Differences between Enterprise and Cloud 
 https://docs.splunk.com/Documentation/SplunkCloud/9.2.2406/Service/SplunkCloudservice#Differences_between_Splunk_Cloud_Platform_and_Splunk_Enterprise
+- Real time searches are enabled by default in Victoria Cloud
+- Rest API requires a support case to open the port and enable
+- Cloud REST API is a subset of the Enterprise REST API, have different endpoints in some cases.
+- Do NOT modify or use Splunk system roles or user in Cloud
 
 # ACS capabilites
 https://docs.splunk.com/Documentation/SplunkCloud/9.2.2406/Config/RBAC#Manage_ACS_endpoint_access_with_capabilities
