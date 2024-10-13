@@ -12,19 +12,43 @@ https://docs.splunk.com/Documentation/Splunk/9.3.1/Security/Aboutusersandroles#H
 - As such if all knowledge objects do not have an explicit owner set, the role assigned will be associated with nobody, and as a system user/role, the capabilities granted cannot be overridden.
 - In nearly all cases, capabilities whose names begin with edit_ give users the ability to perform create, read, update, and delete operations for the feature with which they associate.
 - Do NOT modify or use Splunk system roles or user in Cloud, therefore, do not apply the the default system roles
+- All index time KO are saved to ./apps/000-self-service/local/ in the cloud, which means the definetion is not replicated, and not available for export, or central management 
 
 Splunk ACS required permissions
 https://docs.splunk.com/Documentation/SplunkCloud/9.2.2406/Config/RBAC#Manage_ACS_endpoint_access_with_capabilities
 - any user/role that has the required ACS permissions can use ACS, does not have to be explicitly sc_admin
 
-# PREQREQURISTES to App install Requirement
+Splunk API required permission 
+-
+
+Federated Search permissons
+  - https://docs.splunk.com/Documentation/SplunkCloud/9.2.2406/RESTREF/RESTfederated
+  - Transparent mode federated providers do not use federated indexes. If you are running all of your federated searches in transparent mode, you can skip this topic.
+  - Anyone with a role that has the admin_all_objects and indexes_edit can create federated indexes
+  - Just as with normal Splunk indexes, you grant access to federated indexes at the role level. This lets you grant federated index access to certain groups of users while disallowing access to other user groups.
+  -  In transparent mode, federated searches apply the application context that is active when the search is run on the local search head to the remote search heads on the federated providers. 
+      This means that if the user is in the search app, then the knowledge objects of search app apply, so all apps, should set the context explicitly
+      https://docs.splunk.com/Documentation/SplunkCloud/9.2.2406/FederatedSearch/fss2sAppContext#Benefits_of_setting_an_app_context
+  -  In transparent mode, all 
+
+# PREQREQURISTES for Victoria App installation and uninstall management 
 - Ensure permissions are set on other apps with least privledge
   - SplunkBase apps and addons are typically overprovisioned
   - Ensure the Splunk sustem users are not used by KOs that will be managed by your users 
   -  User,Power,Admin,Nobody, Splunk-System-User
-
 - Real time searches are enabled by default in Victoria Cloud
 
+
+
+RECOMENDED PERMISSIONS
+- Create a role called [ALL_INDEX_CREATE_MODIFY] with only the capability : admin_all_objects and indexes_edit
+- Removed admin_all_objects and indexes_edit from all users, power, psuedo admin
+- Only re-grant the role [ALL_INDEX_CREATE_MODIFY] to a user/role that CANNOT use the GUI 
+ - this is due to 
+
+
+
+###################
 -----------------
 # Overview 
 # Create an sc_admin user on ALL search head groups AdHoc and ES and (ITSI) if needed.
@@ -70,11 +94,6 @@ assign only to the role es_security_content_manager
 # now repeat for bu_adhoc_content_manager on Adhoc still 
 
 
-
-
-
-
-###################
 As an sc_admin on the GUI on ES SH 
 - Add export_apps role to your sc_admin user
 
