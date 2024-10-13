@@ -5,10 +5,20 @@ Requirements
 - Splunk Enterprise, full install standalone, linux
 - Splunk Cloud Victoria version minimum 9.2.2304
 - Splunk Cloud sc_admin account, with Export Apps role added
+- An sc_admin account, with Export Apps role added on each Search Head Group
+- The API opened to Splunk Cloud, (via support case)
+
+Splunk Required Knowledge 
+- Roles, Capabilites, Users, and Knowledge Object management
+- Knowledge Object precedence
 
 Splunk Cloud Victoria - Required Knowlege
 # Differences between Enterprise and Cloud 
 https://docs.splunk.com/Documentation/SplunkCloud/9.2.2406/Service/SplunkCloudservice#Differences_between_Splunk_Cloud_Platform_and_Splunk_Enterprise
+
+# ACS capabilites
+https://docs.splunk.com/Documentation/SplunkCloud/9.2.2406/Config/RBAC#Manage_ACS_endpoint_access_with_capabilities
+= Any user whose role contains the required capabilities can run operations against ACS API endpoints, not just the sc_admin
 
 # How self-service app installation works in Victoria Experience
 https://docs.splunk.com/Documentation/SplunkCloud/9.2.2406/Admin/PrivateApps#How_self-service_app_installation_works_in_Victoria_Experience
@@ -48,14 +58,3 @@ https://dev.splunk.com/enterprise/docs/developapps
 
 # Getting Started with Splunk App Development
 https://dev.splunk.com/enterprise/tutorials/module_getstarted
-
-
-Splunk Roles & Users
-https://docs.splunk.com/Documentation/SplunkCloud/latest/Security/Rolesandcapabilities
-Splunk roles and the capabilities they provide are additive.
-Roles contain a set of capabilities a member user can perform. 
-      A user can belong to one or more roles. By default the user role in Splunk, allows very permissive permission. 
-Roles may be assigned to most of the knowledge objects in splunk.
-However when a knowledge object does not have an owner, splunk cloud will override with user=nobody
-As such if all knowledge objects do not have an explicit owner set, the role assigned will be associated with nobody, and as a system user/role, the capabilities granted cannot be overridden.
-
