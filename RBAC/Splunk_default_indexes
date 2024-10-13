@@ -14,6 +14,8 @@ etc/system/default/indexes.conf                            [_telemetry]
 etc/system/default/indexes.conf                            [_thefishbucket]
 etc/apps/SplunkDeploymentServerConfig/default/indexes.conf [_dsclient]
 etc/apps/SplunkDeploymentServerConfig/default/indexes.conf [_dsphonehome]
+etc/system/default/indexes.conf                            [history]
+
 
 # Remove _* from everyone except sc_admin
 # only keep for limited user roles on use case basis 
