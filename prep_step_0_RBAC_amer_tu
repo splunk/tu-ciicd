@@ -24,16 +24,11 @@ run_dump = enabled
 /opt/splunk/etc/system/local/authorize.conf  run_multi_phased_searches = enabled
 
 
-# Adhoc AMER 
-# remove the 
-# roles with high user counts
-# roles with high index access count
+# Index management
+# All index time properties are saved in Cloud in the 000-self-service app
+# Which is not available for export 
 
+apps/000-self-service/local/indexes.conf               [abinitio]
+apps/000-self-service/local/indexes.conf               [add_on_builder_index]
 
-# Create role es_content_mgr
-# Create role amer_content_mgr
-
-# Create user es_content_owner
-# Create role amer_content_mgr
-
-# ES Amer
+# Reccomend moving to /app/tu_all_indexes/default/indexes.conf 
