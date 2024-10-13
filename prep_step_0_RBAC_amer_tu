@@ -1,12 +1,120 @@
 # https://docs.splunk.com/Documentation/SplunkCloud/latest/Security/Rolesandcapabilities
 # https://docs.splunk.com/Documentation/SplunkCloud/latest/Security/SecuringaccessforSplunkknowledgeobjects
+# https://docs.splunk.com/Documentation/SplunkCloud/latest/Config/RBAC#Manage_ACS_endpoint_access_with_capabilities
 
-##### 
+https://docs.splunk.com/Documentation/SplunkCloud/latest/Security/Rolesandcapabilities#Splunk_platform_capabilities
+Because capabilities change frequently from release to release, not every capability that is available to the Splunk platform appears in this list. 
+Apps and add-ons can add their own capabilities which also do not appear here. 
+See the documentation for the app or add-on that you use to potentially get information on app- and add-on-specific capabilities.
+
+#  EVERY APP NEEDS REVIEW BY ALL ADMINS
+
+
+####### DEFAULT ROLES Best Practices ########
+[role_sc_admin]
+Without strict governance, training, and communication, any of these users could impact eachother (ES, ADhoc)
+ALL of these user with the sc_admin role have access to the same capabilites, which is super admin on Cloud. 
+
+Best practices:
+Keep a most 2-3 super admin sc_admin users with the default sc_admin role, break glass, new features, and the highest level of global changes.
+These accounts have a very strict management process for use, e.g. check-in/check-out.
+
+For the rest of the "admins" create a new role (lower) that does not inherit directly to sc_admin
+[role_ <<searchhead>_admin_<region>]
+ "<stack>_<searchhead>_admin_<region>" for each unit/region, DOES NOT inherit any default Splunk roles
+Do NOT add the following capabilities, or allow access to them.
+This lower "sc_admin" role should NOT have the following capabilities that default sc_admin role has 
+= acs_edit_federated_providers
+- acs_edit_maintenance_windows
+- acs_edit_outbound_ports
+- acs_edit_private_connectivity
+- acs_list_federated_providers
+- acs_list_ip_allow_list
+- acs_list_outbound_ports
+= acs_list_private_connectivity
+= change_authentication
+- can_delete
+- apps_restore
+= change_audit
+- delete_by_keyword
+- dispatch_rest_to_indexers (not available in Cloud)
+- dmc_deploy_apps
+- dmc_manage_topology
+- edit_authentication_extensions
+
+
+###### TU RBAC Recomendations #########
+[role_sc_admin]
+- TU Cloud sc_admin has currently 32 in AMER, ## in Canada, and ## in Cibil
+RECOMMEND 
+- Create lower admin roles [role_ <<searchhead>_admin_<region>] by best practices
+
+REMOVE
+- admin_all_objects
+- apps_backup
+- cloud_internal
+- edit_cam_queue ?
+- edit_certificates
+- edit_cmd
+- edit_data_archive ? 
+= edit_data_processor ? 
+= edit_deployment_client
+- edit_deployment_server
+- edit_dist_peer
+= edit_edge_processor ?
+- edit_encryption_key_provider
+- edit_forwarders
+- edit_httpauths
+- edit_indexer_cluster
+- edit_indexerdiscovery
+
+
+KEEP
+- acs_list_maintenance_windows
+- apps_backup ? 
+= capture_ingest_events ?
+- customer_cases ?
+- dmc_deploy_token_http ? 
+- edit_auto_ui_updates ? 
+- edit_bookmarks_mc ? 
+- edit_dashboard_allow_list 
+- edit_field_filter ? 
+- edit_global_banner ? 
+- edit_health ?
+- edit_health_subset
+
+
+
+#[role_user]
+user has 1039 users 
+All of these users can see indexes=* by default
+
+RECOMMEND 
+- create "tu_amer_user_<region>" for each bunit/region, do NOT inherit any default Splunk roles
+
+REMOVE
+- this ROLE does NOT have the folling capabilities that default user role has
+- schedule_rtsearch
+- upload_lookup_files
+
+KEEP 
+- change_own_password
+
+[role_power]
+power has 13 users, but inherhits user.
+More locked down than sc_admin in some waus 
+RECOMMEND 
+- create a "tu_amer_power_<region>" one for each bunit/region, do NOT inherit any default Splunk roles
+
+REMOVE
+- this ROLE does NOT have the folling capabilities that default user+power role has
+- admin_all_objects
+
+
 # Recommeneded capabilites to remove from [role_user],[role_power]
 upload_lookup_files
 input_file
-accelerate_search
-schedule_rtsearch
+
 srchIndexesAllowed = 
 srchIndexesDefault = 
 
