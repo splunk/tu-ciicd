@@ -1,0 +1,4 @@
+# etc/system/default/authorize.conf
+
+cumulativeRTSrchJobsQuota = 100
+cumulativeSrchJobsQuota = 50
