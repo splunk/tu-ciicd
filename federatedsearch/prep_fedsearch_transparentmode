@@ -1,5 +1,5 @@
-splunk_federated_provider field is not returned in accelerated data model queries 
 https://splunk.atlassian.net/browse/SPL-244489
+splunk_federated_provider field is not returned in accelerated data model queries 
 https://docs.splunk.com/Documentation/Splunk/7.2.4/Installation/AboutupgradingREADTHISFIRST#Data_model_searches_now_only_use_fields_that_have_been_defined_within_the_data_model:~:text=Data%20model%20searches,that%20contain%20whitespace
 
 Returns splunk_federated_provider field
@@ -9,4 +9,7 @@ DOES NOT return splunk_federated_provider field
 | datamodel test_dm test_ds search	
 | tstats count from datamodel=test_dm by test_ds.user
 
+
+https://splunk.atlassian.net/browse/SPL-249627
+In transparent mode verbose mode search, RSH does not return 'timestamp' field.(Cloud->Orca flow)
 
