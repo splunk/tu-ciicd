@@ -1,21 +1,48 @@
-As an sc_admin on the GUI on adhoc SHC 
+# https://docs.splunk.com/Documentation/SplunkCloud/9.2.2406/Service/SplunkCloudservice#Differences_between_Splunk_Cloud_Platform_and_Splunk_Enterprise
+- Real time searches are enabled by default in Victoria Cloud
+- Rest API requires a support case to open the port and enable
+- Cloud REST API is a subset of the Enterprise REST API, have different endpoints in some cases.
+- Do NOT modify or use Splunk system roles or user in Cloud
 
+
+# PREQREQURISTES to App install Requirement
+- Ensure permissions are set on other apps with least privledge
+  - SplunkBase apps and addons are typically overprovisioned
+  - Ensure the Splunk sustem users are not used by KOs that will be managed by your users 
+
+# Overview 
+# Create an sc_admin user on ALL search head groups AdHoc and ES and (ITSI) if needed.
+- Keep the users with sc_admin as low as possible to ensure platform stability
+
+# Create Content Management Roles for each Search Head group, eg. IT-content-mgr and ES-content-mgr 
+- ON ALL Search Head Groups, all these roles will be defined
+- This configuration will help ensure that each of these content roles will have permissions removed in the Search Head Groups that they should not write to.
+
+# Create Content Users for each Search Head group, eg. IT-content-owner and ES-content-owner
+- ON ALL Search Head Groups, all these content owners will be defined.
+- This configuration will help ensure that that there is always an availalable owner to assign, so that the Splunk system user like NOBODY, does not inadvertantly get access to KOs'
+
+
+
+# Create content role on Adhoc first. 
+- Log in to GUI of Adhoc as an sc_admin
 - Add export_apps role to your sc_admin user
 
-- Create a role called es_security_content_manager
-On AD-HOC this role has NO CAPABILITIES
+# Create a role called [es_security_content_manager]
+On AD-HOC,and ITSI this role has NO CAPABILITIES
 NO search
 NO scheduled search
-NO access to any indexes
+NO access to all indexes
 NO capabilities
-
-- Default app DA-ESS-ContentUpdate
+# Set the es_security_content_manager role on Ad-Hoc and ITSI to limitied Jobs, search windows, and diskspace
 Role search job limit, 5 standard, 5 real-time
 User search job limit, 3 standard, 1 real-time
 Role search time window max 60, earliest 600
 Disk space limit 10mb
+Set the default app to - SEARCH app
 
 - Reload Auth Configuration
+
 Return to role es_security_content_manager observe 5 NATIVE capabilities have returned automatically back, remove them again, except edit_own_objects, and list_all_objects
 
 - Create a user called es_security_content_owner
