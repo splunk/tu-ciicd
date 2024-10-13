@@ -1,7 +1,16 @@
-Splunk Roles & Users
+Splunk Roles, Capabilities & Users
 https://docs.splunk.com/Documentation/SplunkCloud/latest/Security/Rolesandcapabilities
 https://docs.splunk.com/Documentation/SplunkCloud/latest/Security/Rolesandcapabilities#Splunk_platform_capabilities
 https://docs.splunk.com/Documentation/Splunk/9.3.1/Security/Aboutusersandroles#How_role_inheritance_works
+https://docs.splunk.com/Documentation/SplunkCloud/latest/Security/SecuringaccessforSplunkknowledgeobjects
+https://docs.splunk.com/Documentation/SplunkCloud/latest/Config/RBAC#Manage_ACS_endpoint_access_with_capabilities
+
+https://docs.splunk.com/Documentation/SplunkCloud/latest/Security/Rolesandcapabilities#Splunk_platform_capabilities
+Because capabilities change frequently from release to release, not every capability that is available to the Splunk platform appears in this list. 
+Apps and add-ons can add their own capabilities which also do not appear here. 
+See the documentation for the app or add-on that you use to potentially get information on app- and add-on-specific capabilities.
+
+#  EVERY APP NEEDS REVIEW BY ALL ADMINS
 
 - Splunk roles and the capabilities they provide are additive.
 - Roles do not take access away
