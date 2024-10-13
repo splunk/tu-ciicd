@@ -1,0 +1,23 @@
+# most indexes are NOT set to archive
+etc/system/default/indexes.conf                            archiver.enableDataArchive = false
+
+# Recommend archiving _* indexes for trending, auditing 
+
+etc/system/default/indexes.conf                            [_audit]
+etc/system/default/indexes.conf                            [_configtracker]
+etc/apps/SplunkDeploymentServerConfig/default/indexes.conf [_dsappevent]
+etc/system/default/indexes.conf                            [_internal]
+etc/system/default/indexes.conf                            [_introspection]
+etc/system/default/indexes.conf                            [_metrics]
+etc/system/default/indexes.conf                            [_metrics_rollup]
+etc/system/default/indexes.conf                            [_telemetry]
+etc/system/default/indexes.conf                            [_thefishbucket]
+etc/apps/SplunkDeploymentServerConfig/default/indexes.conf [_dsclient]
+etc/apps/SplunkDeploymentServerConfig/default/indexes.conf [_dsphonehome]
+
+# Remove _* from everyone except sc_admin
+# only keep for limited user roles on use case basis 
+
+# Automation for content managemetn will need 
+# _audit 
+# _configtracker 
