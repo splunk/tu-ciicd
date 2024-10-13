@@ -1,0 +1,8 @@
+# Common Splunk provied security indexes 
+
+phantomdelete	12
+phantomsearch	12
+splunk_app_soar	12
+splunk_app_soar_dashboards	12
+
+DA-ESS=Content=Update
