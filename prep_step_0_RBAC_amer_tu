@@ -1,5 +1,5 @@
 # https://docs.splunk.com/Documentation/SplunkCloud/latest/Security/Rolesandcapabilities
-
+# https://docs.splunk.com/Documentation/SplunkCloud/latest/Security/SecuringaccessforSplunkknowledgeobjects
 
 ##### 
 # Recommeneded capabilites to remove from [role_user],[role_power]
