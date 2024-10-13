@@ -4,8 +4,12 @@
 - Splunk Enterprise Dev/Test License
 - Splunk Enterprise, full install standalone, linux
 - Splunk Cloud Victoria version minimum 9.2.2304
-- Splunk Cloud sc_admin account, with Export Apps role added to ALL Search Head Groups
 - The API opened to Splunk Cloud, (via support case)
+
+# Admin user requirements
+- Splunk Cloud sc_admin or equivalant admin account, with Export Apps role added to ALL Search Head Groups
+- Not be restricted by admin
+- https://docs.splunk.com/Documentation/SplunkCloud/9.2.2406/Admin/SelfServiceAppInstall#Install_restricted_Splunkbase_apps
 
 # Add Development Reference Documentation
 https://dev.splunk.com/enterprise/docs/developapps
@@ -52,6 +56,11 @@ https://docs.splunk.com/Documentation/SplunkCloud/9.2.2406/Admin/PrivateApps#How
 3. ACS capabilites
 https://docs.splunk.com/Documentation/SplunkCloud/9.2.2406/Config/RBAC#Manage_ACS_endpoint_access_with_capabilities
 - Any user whose role contains the required capabilities can run operations against ACS API endpoints, not just the sc_admin
+
+Admin Config Service (ACS) API endpoints reference
+http://docs.splunk.com/Documentation/SplunkCloud/latest/Config/ACSREF
+ACS on CLI 
+http://docs.splunk.com/Documentation/SplunkCloud/latest/Config/ACSCLI
 
 4. Target Apps ACS Capabilities/Limitations
 https://docs.splunk.com/Documentation/SplunkCloud/9.2.2403/Config/TargetSearchHeads
