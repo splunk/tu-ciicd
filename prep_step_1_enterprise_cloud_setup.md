@@ -18,7 +18,7 @@
 ################################
 # Step 2
 # Create an sc_admin user on ALL search head groups AdHoc and ES and (ITSI) if needed.
-- Keep the users with sc_admin as low as possible to ensure platform stability
+- Keep the users with `sc_admin` as low as possible to ensure platform stability
 
 # Create Content Management Roles for each Search Head group, eg. IT-content-mgr and ES-content-mgr 
 - ON ALL Search Head Groups, all these roles will be defined
@@ -32,7 +32,7 @@
 
 # Create content role on Adhoc first. 
 - Log in to GUI of Adhoc as an sc_admin
-- Add export_apps role to your sc_admin user
+- Add `export_apps` role to your `sc_admin` user
 
 # Create a role called [es_security_content_manager]
 On AD-HOC,and ITSI this role has NO CAPABILITIES
@@ -52,30 +52,30 @@ Set the default app to - SEARCH app
 Return to role es_security_content_manager observe 5 NATIVE capabilities have returned automatically back, remove them again, except edit_own_objects, and list_all_objects
 
 - Create a user called es_security_content_owner
-set the default app to Search and Reporting
+set the default app to **Search and Reporting**
 ensure there are NO other roles, including user inherited.
-assign only to the role es_security_content_manager
+assign only to the role `es_security_content_manager`
 
 
-# now repeat for bu_adhoc_content_manager on Adhoc still 
+# now repeat for `bu_adhoc_content_manager` on Adhoc still 
 
 
 As an sc_admin on the GUI on ES SH 
-- Add export_apps role to your sc_admin user
+- Add `export_apps` role to your sc_admin user
 
 - Create a role called es_security_content_manager
 inherited the roles ess_admin, and ess_analyst, export_apps, ess_user
-add _audit index, _config_tracker index, as included, not default
+add `_audit` index, `_config_tracker` index, as included, not default
 
 - change the roles default app to SplunkEnterpriseSecuritySuite
 
-- Create a user called es_security_content_owner
+- Create a user called `es_security_content_owner`
 ensure there are NO other roles, including user inherited.
 assign only to the role es_security_content_manager
 set default app to SplunkEnterpriseSecurity
 
 ########
-- Create a user called es_gui_demo_developer_user
+- Create a user called `es_gui_demo_developer_user`
 this is for demonstration purposes, represents your users’ own accounts
 assign only to the role es_security_content_manager
 set default app to SplunkEnterpriseSecurity
