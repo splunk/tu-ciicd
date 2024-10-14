@@ -93,3 +93,13 @@ http://docs.splunk.com/Documentation/SplunkCloud/latest/Config/ACSCLI
 - Least privledged RBAC and explicit knowledge object ownership and permissions is a must for platform stability
 - Must be careful to not run all searches enabled twice, by restricting content with explicit roles
 - Use of Splunk system accounts allows other admins access to KOs and replication to other search head server groups
+
+
+### Additional information ⛓️ 🧰
+
+1. [prep_step_1_enterprise_cloud_setup](prep_step_1_enterprise_cloud_setup.md)
+2.
+3. [step3_create_inital_apps](step3_create_inital_apps.md)
+4. [step4_get_sc_admin_token](step4_get_sc_admin_token.md)
+5. [step5_appinspect_cloud_instal](step5_appinspect_cloud_install.md)
+
