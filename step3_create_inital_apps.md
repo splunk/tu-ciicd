@@ -36,23 +36,23 @@
 > in that link *step 2*
 
 ##### ensure that permissions are set to splunk user 
-> chmod -R u+rw,g-rwx,o-rwx splunkuser
+> `chmod -R u+rw,g-rwx,o-rwx splunkuser`
 
-> slim generate-manifest <appname> -o <appname>/app.manifest
+> `slim generate-manifest <appname> -o <appname>/app.manifest`
 
 ##### keep running manifest until everything is good, (should be)
-> slim validate <appname>
+> `slim validate <appname>`
 
 ##### ensure that permissions are set to splunk user again after modifications
-> chmod -R u+rw,g-rwx,o-rwx splunkuser
+> `chmod -R u+rw,g-rwx,o-rwx splunkuser`
 
 > https://dev.splunk.com/enterprise/docs/releaseapps/packageapps
 ##### remove any extra files from package
-> COPYFILE_DISABLE=1 tar --format ustar -cvzf <appname>.tar.gz <appname_directory>
+> `COPYFILE_DISABLE=1 tar --format ustar -cvzf <appname>.tar.gz <appname_directory>`
 
 ##### run appinspect CLI locally to see if we are good for cloud as a private app
 > https://dev.splunk.com/enterprise/docs/releaseapps/cloudvetting
 > https://dev.splunk.com/enterprise/docs/developapps/testvalidate/appinspect/useappinspectclitool
 
-> splunk-appinspect list checks --included-tags future
-> splunk-appinspect inspect <appname>.tgz --included-tags cloud --included-tags self-service --excluded-tags splunk-appinspect
+> `splunk-appinspect list checks --included-tags future`
+> `splunk-appinspect inspect <appname>.tgz --included-tags cloud --included-tags self-service --excluded-tags splunk-appinspect`
