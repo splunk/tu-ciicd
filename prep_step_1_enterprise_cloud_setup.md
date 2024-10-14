@@ -87,4 +87,5 @@ set default app to SplunkEnterpriseSecurity
 - validate that the user can
 ------- login 
 -------- can't log in to other
---- 
+--- can create content , like a saved search.
+--- validate that that saved search does not run on the other search head , and vice versa
