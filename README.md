@@ -101,5 +101,5 @@ http://docs.splunk.com/Documentation/SplunkCloud/latest/Config/ACSCLI
 2.
 3. [step3_create_inital_apps](step3_create_inital_apps.md)
 4. [step4_get_sc_admin_token](step4_get_sc_admin_token.md)
-5. [step5_appinspect_cloud_instal](step5_appinspect_cloud_install.md)
+5. [step5_appinspect_cloud_install](step5_appinspect_cloud_install.md)
 
