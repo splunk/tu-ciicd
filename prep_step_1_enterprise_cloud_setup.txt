@@ -89,3 +89,17 @@ set default app to SplunkEnterpriseSecurity
 -------- can't log in to other
 --- can create content , like a saved search.
 --- validate that that saved search does not run on the other search head , and vice versa
+
+
+# Step 3. 
+# create an automation role/user that can monitor for app changes 
+
+Create 
+es-security-content-automation-users 
+must have index=_audit and index=_configtracker 
+and must have search access via api
+
+will run this search, any other searches should trigger an investigation due to the sensitivity of this index.
+
+index=_audit app=DA-ESS-security-content-* action=modified | stats latest by app,user,action,_time
+
