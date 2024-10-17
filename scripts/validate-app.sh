@@ -95,12 +95,20 @@ echo "Retrieving validation report..."
 REPORT_RESPONSE=$(curl -s -X GET \
      -H "Authorization: bearer $TOKEN" \
      -H "Cache-Control: no-cache" \
-     -H "Content-Type: text/html" \
+     -H "Content-Type: application/json" \
      --url "https://appinspect.splunk.com/v1/app/report/$REQUEST_ID")
 check_success "Report retrieval failed"
 
-show_response_message "$REPORT_RESPONSE"
+# Extract failure count using awk
+FAILURES=$(echo "$REPORT_RESPONSE" | awk -F'"failure":' '{print $2}' | awk -F',' '{print $1}' | sed -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//')
 
-echo "$REPORT_RESPONSE" > $OUTPUT_FILE_NAME.html
+if [ "$FAILURES" = "0" ]; then
+    echo "App Validation was successful"
+else
+    echo "App Validation was not successful"
+    echo "Number of failures: $FAILURES"
+fi
 
-echo "Report saved to $OUTPUT_FILE_NAME.html"
+# Save the JSON response
+echo "$REPORT_RESPONSE" > "$OUTPUT_FILE_NAME.json"
+echo "JSON response has been saved to $OUTPUT_FILE_NAME.json"
