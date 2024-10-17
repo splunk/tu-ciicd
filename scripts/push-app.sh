@@ -70,6 +70,21 @@ STATUS=$(echo "$INSTALL_RESPONSE" | grep -o '"status":"[^"]*' | sed 's/"status":
 if [[ $STATUS == "installed" ]]; then
     echo "App installed successfully"
     echo "Response: $INSTALL_RESPONSE"
+    echo "Checking if a restart is needed..."
+    
+    RESTART_CHECK_RESPONSE=$(curl -s -X GET "https://$ENVIRONMENT/$STACK_NAME/$ACS/status" \
+        --header "Authorization: Bearer $STACK_TOKEN")
+    
+    RESTART_REQUIRED=$(echo "$RESTART_CHECK_RESPONSE" | grep -o '"restartRequired":[^,}]*' | sed 's/"restartRequired"://')
+    if [[ $RESTART_REQUIRED == "true" ]]; then
+        echo "Restart is required. Initiating restart..."
+        RESTART_RESPONSE=$(curl -X POST "https://$ENVIRONMENT/$STACK_NAME/$ACS/restart-now" \
+            --header "Authorization: Bearer $STACK_TOKEN")
+        echo "Restart response: $RESTART_RESPONSE"
+        check_success "Failed to restart $STACK_NAME"
+    else
+        echo "No restart required."
+    fi
 else
     echo "Failed to install app"
     echo "Response: $INSTALL_RESPONSE"
