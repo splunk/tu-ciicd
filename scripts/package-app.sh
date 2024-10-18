@@ -25,6 +25,18 @@ if [ -d "$app_name/bin" ]; then
     find "$app_name/bin" -type f -print0 | xargs -0 chmod 755
 fi
 
+# Delete /metadata/local.meta
+if [ -f "$app_name/metadata/local.meta" ]; then
+    rm "$app_name/metadata/local.meta"
+    echo "Deleted $app_name/metadata/local.meta"
+fi
+
+# Remove [install] stanza from default/app.conf
+if [ -f "$app_name/default/app.conf" ]; then
+    sed -i '' '/^\[install\]/,/^$/d' "$app_name/default/app.conf"
+    echo "Removed [install] stanza from $app_name/default/app.conf"
+fi
+
 # Create the tarball
 COPYFILE_DISABLE=1 GZIP=-9 tar \
     --exclude="local" \
