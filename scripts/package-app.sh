@@ -54,9 +54,21 @@ if [ -d "$APP_PACKAGE/bin" ]; then
     find "$APP_PACKAGE/bin" -type f -print0 | xargs -0 chmod 755
 fi
 
+# Delete /metadata/local.meta
+if [ -f "$APP_PACKAGE/metadata/local.meta" ]; then
+    rm "$APP_PACKAGE/metadata/local.meta"
+    echo "Deleted $APP_PACKAGE/metadata/local.meta"
+fi
+
 # Remove [install] stanza from default/app.conf
 if [ -f "$APP_PACKAGE/default/app.conf" ]; then
-    sed -i '' '/^\[install\]/,/^$/d' "$APP_PACKAGE/default/app.conf"
+    awk '
+        BEGIN {in_install = 0}
+        /^\[install\]/ {in_install = 1; next}
+        /^\[/ && in_install {in_install = 0}
+        !in_install {print}
+    ' "$APP_PACKAGE/default/app.conf" > "$APP_PACKAGE/default/app.conf.tmp" &&
+    mv "$APP_PACKAGE/default/app.conf.tmp" "$APP_PACKAGE/default/app.conf"
     echo "Removed [install] stanza from $APP_PACKAGE/default/app.conf"
 fi
 
@@ -78,12 +90,12 @@ echo "Transferred ${APP_PACKAGE}.tgz to deployer"
 
 # SSH to Splunk instance and run commands to install the app and apply the shcluster bundle
 ssh -t -o StrictHostKeyChecking=no ${SPLUNK_USER}@${SPLUNK_HOST} << EOF
-    sudo su
+    sudo su - splunk
  
     tar -xzf /tmp/${APP_PACKAGE}.tgz -C /opt/splunk/etc/shcluster/apps/
     echo "Extracted ${APP_PACKAGE} to /opt/splunk/etc/shcluster/apps/"
 
-    /opt/splunk/bin/splunk apply shcluster-bundle -target $TARGET_URI -auth $ADMIN_USER:$ADMIN_USER --answer-yes
+    /opt/splunk/bin/splunk apply shcluster-bundle -target $TARGET_URI -auth $ADMIN_USER:$ADMIN_PASSWORD --answer-yes
     rm /tmp/${APP_PACKAGE}.tgz  # Clean up the temporary file
 
     # Write the bundle name to a temporary file
