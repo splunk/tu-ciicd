@@ -90,16 +90,20 @@ echo "Transferred ${APP_PACKAGE}.tgz to deployer"
 
 # SSH to Splunk instance and run commands to install the app and apply the shcluster bundle
 ssh -t -o StrictHostKeyChecking=no ${SPLUNK_USER}@${SPLUNK_HOST} << EOF
-    sudo su - splunk
- 
-    tar -xzf /tmp/${APP_PACKAGE}.tgz -C /opt/splunk/etc/shcluster/apps/
+    sudo su
+    tar -xzvf /tmp/${APP_PACKAGE}.tgz -C /opt/splunk/etc/shcluster/apps/
     echo "Extracted ${APP_PACKAGE} to /opt/splunk/etc/shcluster/apps/"
 
-    /opt/splunk/bin/splunk apply shcluster-bundle -target $TARGET_URI -auth $ADMIN_USER:$ADMIN_PASSWORD --answer-yes
+    # Ensure correct ownership and permissions of the app directory
+    chown -R splunk:splunk /opt/splunk/etc/shcluster/apps/${APP_PACKAGE}
+    chmod -R 755 /opt/splunk/etc/shcluster/apps/${APP_PACKAGE}
+
+    # Apply the shcluster bundle
+    /opt/splunk/bin/splunk apply shcluster-bundle -target $TARGET_URI -auth $ADMIN_USER:$ADMIN_PASSWORD --answer-yes --verbose
     rm /tmp/${APP_PACKAGE}.tgz  # Clean up the temporary file
 
     # Write the bundle name to a temporary file
-    sudo chmod 644 /opt/splunk/var/run/splunk/deploy/apps/${APP_PACKAGE}-*.bundle
+    chmod 644 /opt/splunk/var/run/splunk/deploy/apps/${APP_PACKAGE}-*.bundle
     ls -t /opt/splunk/var/run/splunk/deploy/apps/${APP_PACKAGE}-*.bundle | head -n1 > /tmp/bundle_name.txt
     chmod 644 /tmp/bundle_name.txt  # Ensure the file is readable
 EOF
@@ -117,11 +121,11 @@ echo "Bundle name: ${BUNDLE_NAME}"
 
 # Use ssh to cat the file with sudo and redirect to local file
 echo "Attempting to copy bundle from remote server..."
-ssh -o StrictHostKeyChecking=no ${SPLUNK_USER}@${SPLUNK_HOST} "sudo cat ${BUNDLE_NAME}" > ./${APP_PACKAGE}.tgz
+ssh -o StrictHostKeyChecking=no ${SPLUNK_USER}@${SPLUNK_HOST} "sudo -u splunk cat ${BUNDLE_NAME}" > ./${APP_PACKAGE}.tgz
 if [ $? -ne 0 ]; then
     echo "Error: Failed to copy bundle from remote server."
     echo "Debugging information:"
-    ssh -o StrictHostKeyChecking=no ${SPLUNK_USER}@${SPLUNK_HOST} "sudo ls -l ${BUNDLE_NAME}"
+    ssh -o StrictHostKeyChecking=no ${SPLUNK_USER}@${SPLUNK_HOST} "sudo -u splunk ls -l ${BUNDLE_NAME}"
     exit 1
 fi
 
