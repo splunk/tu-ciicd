@@ -90,22 +90,33 @@ echo "Transferred ${APP_PACKAGE}.tgz to deployer"
 
 # SSH to Splunk instance and run commands to install the app and apply the shcluster bundle
 ssh -t -o StrictHostKeyChecking=no ${SPLUNK_USER}@${SPLUNK_HOST} << EOF
-    sudo su
+    sudo su - splunk
     tar -xzvf /tmp/${APP_PACKAGE}.tgz -C /opt/splunk/etc/shcluster/apps/
     echo "Extracted ${APP_PACKAGE} to /opt/splunk/etc/shcluster/apps/"
 
     # Ensure correct ownership and permissions of the app directory
     chown -R splunk:splunk /opt/splunk/etc/shcluster/apps/${APP_PACKAGE}
-    chmod -R 755 /opt/splunk/etc/shcluster/apps/${APP_PACKAGE}
 
     # Apply the shcluster bundle
     /opt/splunk/bin/splunk apply shcluster-bundle -target $TARGET_URI -auth $ADMIN_USER:$ADMIN_PASSWORD --answer-yes --verbose
-    rm /tmp/${APP_PACKAGE}.tgz  # Clean up the temporary file
+    sudo rm /tmp/${APP_PACKAGE}.tgz  # Clean up the temporary file
 
     # Write the bundle name to a temporary file
     chmod 644 /opt/splunk/var/run/splunk/deploy/apps/${APP_PACKAGE}-*.bundle
     ls -t /opt/splunk/var/run/splunk/deploy/apps/${APP_PACKAGE}-*.bundle | head -n1 > /tmp/bundle_name.txt
     chmod 644 /tmp/bundle_name.txt  # Ensure the file is readable
+
+    # Run app inspect on the remote package and capture the output
+    APP_INSPECT_RESULT=\$(/home/splunk/.local/bin/splunk-appinspect inspect --included-tags cloud --included-tags self-service --excluded-tags splunk-appinspect /opt/splunk/var/run/splunk/deploy/apps/${APP_PACKAGE}-*.bundle)
+
+    # Check if the result contains any failures
+    if echo "\$APP_INSPECT_RESULT" | grep -q "failure:  0"; then
+        echo "App inspect passed without failures."
+    else
+        echo "App inspect found failures. Full output:"
+        echo "\$APP_INSPECT_RESULT"  
+        exit 1
+    fi
 EOF
 
 # Retrieve the bundle name from the temporary file
