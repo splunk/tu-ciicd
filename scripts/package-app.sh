@@ -54,11 +54,11 @@ if [ -d "$APP_PACKAGE/bin" ]; then
     find "$APP_PACKAGE/bin" -type f -print0 | xargs -0 chmod 755
 fi
 
-# Delete /metadata/local.meta
-if [ -f "$APP_PACKAGE/metadata/local.meta" ]; then
-    rm "$APP_PACKAGE/metadata/local.meta"
-    echo "Deleted $APP_PACKAGE/metadata/local.meta"
-fi
+# # Delete /metadata/local.meta
+# if [ -f "$APP_PACKAGE/metadata/local.meta" ]; then
+#     rm "$APP_PACKAGE/metadata/local.meta"
+#     echo "Deleted $APP_PACKAGE/metadata/local.meta"
+# fi
 
 # Remove [install] stanza from default/app.conf
 if [ -f "$APP_PACKAGE/default/app.conf" ]; then
