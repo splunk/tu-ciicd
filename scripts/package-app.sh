@@ -60,6 +60,12 @@ fi
 #     echo "Deleted $APP_PACKAGE/metadata/local.meta"
 # fi
 
+# Create backup of default.meta
+if [ -f "$APP_PACKAGE/metadata/default.meta" ]; then
+    cp "$APP_PACKAGE/metadata/default.meta" "$APP_PACKAGE/metadata/default-backup.meta"
+    echo "Created backup of default.meta at $APP_PACKAGE/metadata/default-backup.meta"
+fi
+
 # Remove [install] stanza from default/app.conf
 if [ -f "$APP_PACKAGE/default/app.conf" ]; then
     awk '
